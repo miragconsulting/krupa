@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поместье «Старая мельница на реке Крупа» - Историческая инвестиционная возможность</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-video {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 1s ease-out;
+        }
+        
+        .animate-scale {
+            animation: scale 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scale {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        .scenario-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .recommended {
+            border: 3px solid #10B981;
+            position: relative;
+        }
+        
+        .recommended::before {
+            content: "РЕКОМЕНДУЕТСЯ";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #10B981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #10B981;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-sticky py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="playfair text-2xl font-bold text-gray-800">
+                <i class="fas fa-landmark mr-2"></i>Поместье Крупа
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="text-gray-700 hover:text-green-600 transition-colors">Обзор</a>
+                <a href="#scenarios" class="text-gray-700 hover:text-green-600 transition-colors">Сценарии</a>
+                <a href="#gallery" class="text-gray-700 hover:text-green-600 transition-colors">Галерея</a>
+                <a href="#analysis" class="text-gray-700 hover:text-green-600 transition-colors">Анализ</a>
+                <a href="#contact" class="btn-primary">Связаться</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video -->
+    <section class="hero-video">
+        <video autoplay muted loop playsinline webkit-playsinline>
+            <source src="https://raw.githubusercontent.com/miragconsulting/krupa/main/krupavideo1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+            <div class="text-center animate-fade-in">
+                <h1 class="playfair text-5xl md:text-7xl font-bold mb-6">Поместье «Старая мельница на реке Крупа»</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">Историческая водяная мельница 1890 года • 27,021 м² у реки • Уникальная инвестиционная возможность в Словении</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="text-center">
+                        <div class="counter animate-scale">€350,000</div>
+                        <div class="text-lg">Цена покупки</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="counter animate-scale">23.5%</div>
+                        <div class="text-lg">Максимальный ROI</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="counter animate-scale">5 лет</div>
+                        <div class="text-lg">Окупаемость</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Описание объекта</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Уникальное поместье, расположенное у излучины кристально чистой реки Крупа, включает историческое здание бывшей водяной мельницы</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="animate-slide-up">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/Krupa1.jpg" alt="Карта поместья" class="w-full rounded-15 shadow-xl">
+                </div>
+                <div class="space-y-6">
+                    <div class="highlight-box">
+                        <h3 class="playfair text-2xl font-bold mb-4">Ключевые характеристики</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-yellow-300 mr-3"></i>
+                                <span><strong>Координаты:</strong> 45°37'30.7"N 15°14'09.4"E</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-expand-arrows-alt text-yellow-300 mr-3"></i>
+                                <span><strong>Площадь участка:</strong> 27,021 м²</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-home text-yellow-300 mr-3"></i>
+                                <span><strong>Застроенная площадь:</strong> 368,7 м² (3 уровня)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-calendar text-yellow-300 mr-3"></i>
+                                <span><strong>Год постройки:</strong> 1890 (реконструкция 1989)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-water text-yellow-300 mr-3"></i>
+                                <span><strong>Расположение:</strong> У излучины реки Крупа</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-car text-yellow-300 mr-3"></i>
+                                <span><strong>До моря, аэропорта, столицы, терм</strong> 1 час езды</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card hover-lift">
+                    <i class="fas fa-euro-sign text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">€350,000</h3>
+                    <p class="text-gray-600">Цена покупки</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <i class="fas fa-tree text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">27,021 м²</h3>
+                    <p class="text-gray-600">Участок с выходом к реке</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <i class="fas fa-building text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">368,7 м²</h3>
+                    <p class="text-gray-600">Историческое здание</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <i class="fas fa-hammer text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">4 объекта</h3>
+                    <p class="text-gray-600">Возможности строительства</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Scenarios -->
+    <section id="scenarios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-6">Сценарии развития</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Пять детально проработанных концепций развития поместья с расчетами окупаемости</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Glamping - Recommended -->
+                <div class="scenario-card recommended bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-campground text-4xl text-green-600 mb-4"></i>
+                        <h3 class="playfair text-2xl font-bold mb-2">Глемпинг</h3>
+                        <p class="text-sm text-gray-600">Эко-туристы, рыбаки</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Инвестиции:</span>
+                            <span class="font-bold">€850,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ROI:</span>
+                            <span class="font-bold text-green-600">23.5%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Окупаемость:</span>
+                            <span class="font-bold">5 лет</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Загрузка:</span>
+                            <span class="font-bold">65%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Прибыль/год:</span>
+                            <span class="font-bold">€200,000</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-green-50 rounded-lg">
+                        <p class="text-sm text-green-800">5-7 роскошных палаток у воды, рыболовные туры, баня, купели</p>
+                    </div>
+                </div>
+
+                <!-- Boutique Hotel -->
+                <div class="scenario-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-hotel text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="playfair text-2xl font-bold mb-2">Бутик-отель</h3>
+                        <p class="text-sm text-gray-600">Состоятельные туристы, пары</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Инвестиции:</span>
+                            <span class="font-bold">€1,350,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ROI:</span>
+                            <span class="font-bold text-blue-600">22.2%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Окупаемость:</span>
+                            <span class="font-bold">7 лет</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Загрузка:</span>
+                            <span class="font-bold">57.5%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Прибыль/год:</span>
+                            <span class="font-bold">€300,000</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-blue-800">6-8 люксовых номеров, 3-4 бунгало, бассейн с видом на реку</p>
+                    </div>
+                </div>
+
+                <!-- Active Recreation Center -->
+                <div class="scenario-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-hiking text-4xl text-orange-600 mb-4"></i>
+                        <h3 class="playfair text-2xl font-bold mb-2">Центр активного отдыха</h3>
+                        <p class="text-sm text-gray-600">Активные семьи, группы</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Инвестиции:</span>
+                            <span class="font-bold">€1,100,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ROI:</span>
+                            <span class="font-bold text-orange-600">20.0%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Окупаемость:</span>
+                            <span class="font-bold">5 лет</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Загрузка:</span>
+                            <span class="font-bold">70%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Прибыль/год:</span>
+                            <span class="font-bold">€220,000</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-orange-50 rounded-lg">
+                        <p class="text-sm text-orange-800">Троллей над рекой, каякинг, треккинг, стрельба из лука</p>
+                    </div>
+                </div>
+
+                <!-- Hunting Estate -->
+                <div class="scenario-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-crosshairs text-4xl text-red-600 mb-4"></i>
+                        <h3 class="playfair text-2xl font-bold mb-2">Охотничье поместье</h3>
+                        <p class="text-sm text-gray-600">Охотники из Европы</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Инвестиции:</span>
+                            <span class="font-bold">€1,050,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ROI:</span>
+                            <span class="font-bold text-red-600">17.1%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Окупаемость:</span>
+                            <span class="font-bold">6 лет</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Загрузка:</span>
+                            <span class="font-bold">40%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Прибыль/год:</span>
+                            <span class="font-bold">€180,000</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-red-50 rounded-lg">
+                        <p class="text-sm text-red-800">Разведение дичи, трофейная охота, конюшни, винный погреб</p>
+                    </div>
+                </div>
+
+                <!-- Retreat Center -->
+                <div class="scenario-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-spa text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="playfair text-2xl font-bold mb-2">Ретрит-центр</h3>
+                        <p class="text-sm text-gray-600">Digital detox, йога</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Инвестиции:</span>
+                            <span class="font-bold">€1,150,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ROI:</span>
+                            <span class="font-bold text-purple-600">14.8%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Окупаемость:</span>
+                            <span class="font-bold">8 лет</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Загрузка:</span>
+                            <span class="font-bold">35%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Прибыль/год:</span>
+                            <span class="font-bold">€170,000</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-purple-50 rounded-lg">
+                        <p class="text-sm text-purple-800">СПА-зона, медитации, эко-система, гидроэлектростанция</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Comparison Chart -->
+            <div class="bg-gray-50 rounded-xl p-8">
+                <h3 class="playfair text-3xl font-bold text-center mb-8">Сравнение доходности сценариев</h3>
+                <div class="chart-container">
+                    <canvas id="roiChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-6">Галерея объекта</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Фотографии исторического поместья и окружающей территории</p>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/krupa3.jpeg" alt="Историческая мельница">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-white font-bold text-lg">Историческое здание мельницы</h3>
+                        <p class="text-gray-300 text-sm">Каменная конструкция 1890 года, красная черепичная крыша</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/krupa4.jpeg" alt="Водопад на реке Крупа">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-white font-bold text-lg">Водопад на реке Крупа</h3>
+                        <p class="text-gray-300 text-sm">Кристально чистая вода, естественная красота</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/krupa8.jpeg" alt="Детали каменной кладки">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-white font-bold text-lg">3D Визуализация</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/krupa6.jpeg" alt="Деревянный мост">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-white font-bold text-lg">Деревянный мост</h3>
+                        <p class="text-gray-300 text-sm">Изящная конструкция через реку</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/krupa7.jpeg" alt="Река и растительность">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-white font-bold text-lg">Природное окружение</h3>
+                        <p class="text-gray-300 text-sm">Пышная растительность, биоразнообразие</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/miragconsulting/krupa/main/Krupa8.jpeg" alt="План территории">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-white font-bold text-lg">3D Визуализация</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slovenia Tourism Analysis -->
+    <section id="analysis" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-6">Анализ туристической отрасли Словении</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Почему инвестиции в туристическую недвижимость Словении - правильный выбор</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="space-y-8">
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h3 class="playfair text-2xl font-bold mb-4 text-green-800">Впечатляющий рост туризма</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-green-700">Рост туризма в 2024:</span>
+                                <span class="font-bold text-2xl text-green-600">+9%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-green-700">Иностранные туристы:</span>
+                                <span class="font-bold text-2xl text-green-600">2 млн</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-green-700">ROI туристической недвижимости:</span>
+                                <span class="font-bold text-2xl text-green-600">6.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h3 class="playfair text-2xl font-bold mb-4 text-blue-800">Преимущества Словении</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                                <span>Член ЕС и еврозоны - стабильность</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                                <span>Близость к Италии и Австрии</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                                <span>Развитая туристическая инфраструктура</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                                <span>Экологический туризм мирового уровня</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                                <span>Низкие операционные расходы</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="tourismChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Investment Comparison -->
+            <div class="bg-gray-50 rounded-xl p-8">
+                <h3 class="playfair text-3xl font-bold text-center mb-8">Сравнение с европейскими рынками</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <h4 class="font-bold text-lg mb-2">Словения</h4>
+                        <div class="text-3xl font-bold text-green-600 mb-2">6.5%</div>
+                        <p class="text-sm text-gray-600">ROI туризм</p>
+                        <div class="text-lg font-bold text-green-600 mt-2">+9%</div>
+                        <p class="text-xs text-gray-600">Рост туризма</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <h4 class="font-bold text-lg mb-2">Франция</h4>
+                        <div class="text-3xl font-bold text-gray-600 mb-2">4.39%</div>
+                        <p class="text-sm text-gray-600">ROI туризм</p>
+                        <div class="text-lg font-bold text-gray-600 mt-2">+3.2%</div>
+                        <p class="text-xs text-gray-600">Рост туризма</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <h4 class="font-bold text-lg mb-2">Германия</h4>
+                        <div class="text-3xl font-bold text-gray-600 mb-2">4.8%</div>
+                        <p class="text-sm text-gray-600">ROI туризм</p>
+                        <div class="text-lg font-bold text-gray-600 mt-2">+2.8%</div>
+                        <p class="text-xs text-gray-600">Рост туризма</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <h4 class="font-bold text-lg mb-2">Италия</h4>
+                        <div class="text-3xl font-bold text-gray-600 mb-2">5.2%</div>
+                        <p class="text-sm text-gray-600">ROI туризм</p>
+                        <div class="text-lg font-bold text-gray-600 mt-2">+4.1%</div>
+                        <p class="text-xs text-gray-600">Рост туризма</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Recommendation -->
+    <section class="py-20 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-8">Инвестиционная рекомендация</h2>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-12">
+                <div class="text-6xl font-bold mb-4">✅</div>
+                <h3 class="playfair text-3xl font-bold mb-6">НАСТОЯТЕЛЬНО РЕКОМЕНДУЕТСЯ К ИНВЕСТИРОВАНИЮ</h3>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div>
+                        <h4 class="font-bold text-xl mb-4">Финансовые преимущества</h4>
+                        <ul class="space-y-2">
+                            <li>• ROI 23.5% против 6.5% по рынку</li>
+                            <li>• Окупаемость за 5 лет</li>
+                            <li>• Минимальные риски в ЕС</li>
+                            <li>• Растущий рынок (+9%)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-4">Уникальность объекта</h4>
+                        <ul class="space-y-2">
+                            <li>• Историческая ценность (1890)</li>
+                            <li>• Эксклюзивное расположение у реки</li>
+                            <li>• Огромный участок 27,021 м²</li>
+                            <li>• Множественные сценарии развития</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-4">Стратегические факторы</h4>
+                        <ul class="space-y-2">
+                            <li>• Близость к Адриатике (1 час)</li>
+                            <li>• Растущий эко-туризм</li>
+                            <li>• Стабильная юрисдикция</li>
+                            <li>• Международная клиентура</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="#contact" class="btn-primary text-lg">Получить детальную информацию</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-6">Свяжитесь с нами</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Получите персональную консультацию по инвестиционным возможностям поместья</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-green-400"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Местоположение объекта</h3>
+                            <p class="text-gray-300">45°37'30.7"N 15°14'09.4"E<br>Река Крупа, Словения</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-euro-sign text-2xl text-green-400"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Цена</h3>
+                            <p class="text-gray-300">€350,000 (без обременений)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-chart-line text-2xl text-green-400"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Лучший сценарий</h3>
+                            <p class="text-gray-300">Глемпинг: ROI 23.5%, окупаемость 5 лет</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-calendar text-2xl text-green-400"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Организация просмотра</h3>
+                            <p class="text-gray-300">Персональный просмотр объекта<br>с экспертной консультацией</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <h3 class="playfair text-2xl font-bold mb-6">Запросить информацию</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Ваше имя" class="w-full p-4 bg-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" class="w-full p-4 bg-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Телефон" class="w-full p-4 bg-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div>
+                            <select class="w-full p-4 bg-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option value="">Интересующий сценарий</option>
+                                <option value="glamping">Глемпинг</option>
+                                <option value="hotel">Бутик-отель</option>
+                                <option value="hunting">Охотничье поместье</option>
+                                <option value="recreation">Центр активного отдыха</option>
+                                <option value="retreat">Ретрит-центр</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea placeholder="Ваше сообщение" rows="4" class="w-full p-4 bg-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary">Отправить запрос</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="playfair text-2xl font-bold mb-4">
+                <i class="fas fa-landmark mr-2"></i>Поместье «Старая мельница на реке Крупа»
+            </div>
+            <p class="text-gray-400 mb-8">Уникальная инвестиционная возможность в сердце Европы</p>
+            <div class="flex justify-center space-x-6 text-gray-400">
+                <span>Историческое наследие 1890 года</span>
+                <span>•</span>
+                <span>27,021 м² у реки</span>
+                <span>•</span>
+                <span>ROI до 23.5%</span>
+                <span>•</span>
+                <span>5 лет окупаемости</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ROI Comparison Chart
+        const ctx1 = document.getElementById('roiChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Глемпинг', 'Бутик-отель', 'Центр активного отдыха', 'Охотничье поместье', 'Ретрит-центр'],
+                datasets: [{
+                    label: 'ROI (%)',
+                    data: [23.5, 22.2, 20.0, 17.1, 14.8],
+                    backgroundColor: [
+                        '#10B981',
+                        '#3B82F6',
+                        '#F59E0B',
+                        '#EF4444',
+                        '#8B5CF6'
+                    ],
+                    borderRadius: 8,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 25,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Tourism Growth Chart
+        const ctx2 = document.getElementById('tourismChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: 'Иностранные туристы (млн)',
+                    data: [0.8, 1.2, 1.6, 1.8, 2.0],
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#10B981'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 2.5,
+                        ticks: {
+                            callback: function(value) {
+                                return value + ' млн';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scenario-card, .stat-card, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^\d.]/g, ''));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    if (counter.textContent.includes('€')) {
+                        counter.textContent = '€' + Math.floor(current).toLocaleString();
+                    } else if (counter.textContent.includes('%')) {
+                        counter.textContent = current.toFixed(1) + '%';
+                    } else {
+                        counter.textContent = Math.floor(current) + ' лет';
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(animateCounters, 1000);
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"964b2f49e96f2c2d","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.7.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    
